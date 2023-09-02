@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <div>
+        <h1 class="text-center">Cadastrar nova vaga</h1>
+    </div>
+
+    <div>
+        <form>
+            <div class="mb-3">
+                <label for="tituloVaga" class="form-label">Título:</label>
+                <input type="text" class="form-control" id="tituloVaga">
+            </div>
+            <div class="mb-3">
+                <label for="empresa" class="form-label">Empresa:</label>
+                <input type="text" class="form-control" id="empresa">
+            </div>
+            <div class="mb-3">
+                <label for="descricaoVaga">Descrição da vaga:</label>
+                <textarea class="form-control" placeholder="Descreva os requisitos da vaga aqui" id="descricaoVaga"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">Link:</label>
+                <input type="text" class="form-control" id="link">
+            </div>
+            <div class="mb-3">
+                <label for="situacaoVaga">Situação:</label>
+                <select class="form-select">
+                    <option selected>Selecione a situação da vaga</option>
+                    <option value="1">Análise de currículo</option>
+                    <option value="2">Fit cultural</option>
+                    <option value="3">Dinâmica</option>
+                    <option value="4">Entrevista</option>
+                    <option value="5">Desafio</option>
+                    <option value="6">Final</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="modalidade">Modalidade:</label>
+                <select class="form-select">
+                    <option selected>Selecione a modalidade</option>
+                    <option value="1">Presencial</option>
+                    <option value="2">Híbrido</option>
+                    <option value="3">Remoto</option>
+                </select>
+            </div>
+            <div class="">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="1" id="firstCheckbox">
+                        <label class="form-check-label" for="aprovado">Aprovado</label>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="0" id="secondCheckbox">
+                        <label class="form-check-label" for="reprovado">Reprovado</label>
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+}
