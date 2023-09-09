@@ -1,4 +1,5 @@
 using CadastraVagas.Data;
+using CadastraVagas.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ builder.Services.AddControllersWithViews();
 var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 builder.Services.AddDbContext<BancoContext>(item => item.UseSqlServer(configuration.GetConnectionString("Database")));
+
+// Injeção de interfaces
+builder.Services.AddScoped<IVagaRepository, VagaRepository>();
 
 var app = builder.Build();
 
