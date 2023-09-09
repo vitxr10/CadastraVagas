@@ -9,5 +9,7 @@ namespace CadastraVagas.Repository
         VagaModel Editar(VagaModel vaga);
 
         //VagaModel Deletar();
+
+        List<VagaModel> Listar();
     }
 }

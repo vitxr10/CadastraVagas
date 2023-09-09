@@ -33,5 +33,10 @@ namespace CadastraVagas.Repository
             _bancoContext.SaveChanges();
             return vaga;
         }
+
+        public List<VagaModel> Listar()
+        {
+            return _bancoContext.Vagas.ToList();
+        }
     }
 }

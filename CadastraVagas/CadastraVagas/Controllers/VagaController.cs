@@ -24,5 +24,17 @@ namespace CadastraVagas.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Editar(VagaModel vaga)
+        {
+            _vagaRepository.Editar(vaga);
+            return View(vaga);
+        }
+
+        public IActionResult Excluir(VagaModel vaga)
+        {
+            return View();
+        }
+
     }
 }
