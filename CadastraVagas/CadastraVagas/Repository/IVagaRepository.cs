@@ -6,6 +6,8 @@ namespace CadastraVagas.Repository
     {
         VagaModel Adicionar(VagaModel vaga);
 
+        VagaModel ListarPorId(int id);
+
         VagaModel Editar(VagaModel vaga);
 
         //VagaModel Deletar();

@@ -6,7 +6,7 @@
     </div>
 
 
-    <form class="container" asp-controller="Vaga" asp-action="Criar" method="post">
+    <form class="container" asp-controller="Vaga" asp-action="Editar" method="post">
         <div class="row">
             <div class="col mb-3">
                 <label for="tituloVaga" class="form-label">Título:</label>
@@ -62,7 +62,7 @@
             </ul>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Index">Voltar</a>
+        <a class="btn btn-secondary" asp-controller="ListaVagas" asp-action="Index">Voltar</a>
     </form>
 
 

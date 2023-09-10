@@ -4,7 +4,7 @@
 @if (Model != null && Model.Any())
 {
     <div>
-        <h1 class="text-center">Minhas Vagas</h1>
+        <h1 class="text-center">Minhas vagas</h1>
 
         <a asp-area="" asp-controller="Vaga" asp-action="Index">Cadastrar vaga</a>
     </div>
@@ -29,8 +29,8 @@
                     <td>@vaga.Link</td>
 
                     <td>
-                        <a class="btn btn-primary">Editar</a>
-                        <a class="btn btn-danger" asp-route-itemid="@vaga.Id" asp-controller="ListaVagas" asp-action="Excluir">Excluir</a>
+                        <a class="btn btn-primary" asp-route-id="@vaga.Id" asp-controller="Vaga" asp-action="Editar">Editar</a>
+                        <a class="btn btn-danger"  asp-controller="Vaga" asp-action="Excluir">Excluir</a>
                     </td>
                 </tr>
             }

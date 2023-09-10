@@ -17,6 +17,17 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
+        public IActionResult Editar(int id)
+        {
+            VagaModel vaga = _vagaRepository.ListarPorId(id);
+            return View(vaga);
+        }
+
+        public IActionResult Excluir()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Criar(VagaModel vaga)
         {
@@ -28,9 +39,10 @@ namespace CadastraVagas.Controllers
         public IActionResult Editar(VagaModel vaga)
         {
             _vagaRepository.Editar(vaga);
-            return View(vaga);
+            return RedirectToPage("Home");
         }
 
+        [HttpPost]
         public IActionResult Excluir(VagaModel vaga)
         {
             return View();

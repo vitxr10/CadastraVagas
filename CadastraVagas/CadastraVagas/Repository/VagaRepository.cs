@@ -38,5 +38,11 @@ namespace CadastraVagas.Repository
         {
             return _bancoContext.Vagas.ToList();
         }
+
+        public VagaModel ListarPorId(int id)
+        {
+            return _bancoContext.Vagas.FirstOrDefault(x => x.Id == id);
+            
+        }
     }
 }

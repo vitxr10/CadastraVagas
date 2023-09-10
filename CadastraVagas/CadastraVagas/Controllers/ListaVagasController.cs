@@ -15,10 +15,5 @@ namespace CadastraVagas.Controllers
             var listaVagas = _vagaRepository.Listar();
             return View(listaVagas);
         }
-
-        public IActionResult Excluir()
-        {
-            return View();
-        }
     }
 }
