@@ -17,35 +17,43 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
+        public IActionResult Listar()
+        {
+            var listaVagas = _vagaRepository.Listar();
+            return View(listaVagas);
+        }
+
         public IActionResult Editar(int id)
         {
             VagaModel vaga = _vagaRepository.ListarPorId(id);
             return View(vaga);
         }
 
-        public IActionResult Excluir()
+        public IActionResult Excluir(int id)
         {
-            return View();
+            VagaModel vaga = _vagaRepository.ListarPorId(id);
+            return View(vaga);
         }
 
         [HttpPost]
         public IActionResult Criar(VagaModel vaga)
         {
-            _vagaRepository.Adicionar(vaga);
-            return RedirectToAction("Index");
+            _vagaRepository.Criar(vaga);
+            return RedirectToAction("Listar");
         }
 
         [HttpPost]
         public IActionResult Editar(VagaModel vaga)
         {
             _vagaRepository.Editar(vaga);
-            return RedirectToPage("Home");
+            return RedirectToAction("Listar");
         }
 
         [HttpPost]
         public IActionResult Excluir(VagaModel vaga)
         {
-            return View();
+            _vagaRepository.Excluir(vaga);
+            return RedirectToAction("Listar");
         }
 
     }

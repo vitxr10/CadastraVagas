@@ -36,7 +36,8 @@
                     <option value="3">Dinâmica</option>
                     <option value="4">Entrevista</option>
                     <option value="5">Teste</option>
-                    <option value="6">Final</option>
+                    <option value="6">Aprovado(a)</option>
+                    <option value="7">Reprovado(a)</option>
                 </select>
             </div>
         </div>
@@ -49,20 +50,8 @@
                 <option value="3">Remoto</option>
             </select>
         </div>
-        <div class="mb-3">
-            <ul class="list-group list-unstyled">
-                <li class="">
-                    <input name="resultado" type="radio" value="1" asp-for="Aprovado">
-                    <label class="" for="aprovado">Aprovado</label>
-                </li>
-                <li class="">
-                    <input name="resultado" type="radio" value="0" asp-for="Aprovado">
-                    <label class="" for="reprovado">Reprovado</label>
-                </li>
-            </ul>
-        </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a class="btn btn-secondary" asp-controller="ListaVagas" asp-action="Index">Voltar</a>
+        <a class="btn btn-secondary" asp-controller="Vaga" asp-action="Listar">Voltar</a>
     </form>
 
 
