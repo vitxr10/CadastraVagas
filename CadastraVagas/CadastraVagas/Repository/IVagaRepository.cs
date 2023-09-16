@@ -4,14 +4,14 @@ namespace CadastraVagas.Repository
 {
     public interface IVagaRepository
     {
-        VagaModel Adicionar(VagaModel vaga);
+        VagaModel Criar(VagaModel vaga);
+
+        List<VagaModel> Listar();
 
         VagaModel ListarPorId(int id);
 
         VagaModel Editar(VagaModel vaga);
 
-        //VagaModel Deletar();
-
-        List<VagaModel> Listar();
+        void Excluir(VagaModel vaga);
     }
 }

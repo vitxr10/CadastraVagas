@@ -1,13 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model VagaModel
 @{
 }
 
-<div class="text-center">
+<form class="text-center" asp-controller="Vaga" asp-action="Excluir" method="post">
     <h1>Excluir vaga?</h1>
     <p>Tem certeza que deseja excluir essa vaga?</p>
 
-    <a class="btn btn-danger">Excluir</a>
-    <a class="btn btn-secondary" asp-controller="ListaVagas" asp-action="Index">Cancelar</a>
-</div>
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a class="btn btn-secondary" asp-controller="Vaga" asp-action="Listar">Cancelar</a>
+</form>
