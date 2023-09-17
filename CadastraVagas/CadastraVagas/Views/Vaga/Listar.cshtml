@@ -9,7 +9,7 @@
         <a asp-area="" asp-controller="Vaga" asp-action="Index">Cadastrar vaga</a>
     </div>
 
-    <table class="table text-center">
+    <table class="table text-center" id="minhasVagas">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             @foreach (VagaModel vaga in Model)
-            {
+            { 
                 <tr>
                     <th scope="row">@vaga.Id</th>
                     <td>@vaga.Titulo</td>
