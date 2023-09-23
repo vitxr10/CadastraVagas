@@ -10,5 +10,6 @@ namespace CadastraVagas.Data
         }
 
         public DbSet<VagaModel> Vagas { get; set; }
+        public DbSet<UsuarioModel> Usuarios { get; set; }
     }
 }
