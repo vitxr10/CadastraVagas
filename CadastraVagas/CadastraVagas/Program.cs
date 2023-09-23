@@ -14,6 +14,7 @@ builder.Services.AddDbContext<BancoContext>(item => item.UseSqlServer(configurat
 
 // Injeção de interfaces
 builder.Services.AddScoped<IVagaRepository, VagaRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 var app = builder.Build();
 

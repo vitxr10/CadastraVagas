@@ -5,7 +5,7 @@
 
 <h1 class="text-center">Login</h1>
 
-@if(TempData["MensagemErro"] != null)
+@if (TempData["MensagemErro"] != null)
 {
     <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
@@ -25,7 +25,8 @@
         <input type="password" class="form-control" asp-for="Senha" required>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-    <div>
-        <p>Não tem uma conta? <a asp-controller="Home">Cadastre-se</a> </p> 
-    </div>
 </form>
+
+<div>
+    <p>Não tem uma conta? <a asp-controller="Usuario" asp-action="Index">Cadastre-se</a> </p>
+</div>

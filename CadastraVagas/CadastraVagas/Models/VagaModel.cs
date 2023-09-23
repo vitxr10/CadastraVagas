@@ -4,7 +4,6 @@ namespace CadastraVagas.Models
 {
     public class VagaModel
     {
-        [Key]
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Empresa { get; set; }
