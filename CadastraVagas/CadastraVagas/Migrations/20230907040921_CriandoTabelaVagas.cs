@@ -20,7 +20,6 @@ namespace CadastraVagas.Migrations
                     Empresa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Aprovado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
