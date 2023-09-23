@@ -17,11 +17,6 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
-        public IActionResult Editar()
-        {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult Criar(UsuarioModel usuario)
         {
