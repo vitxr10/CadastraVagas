@@ -17,11 +17,16 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
+        public IActionResult Editar()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Criar(UsuarioModel usuario)
         {
             _usuarioRepository.Criar(usuario);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Login");
         }
     }
 }

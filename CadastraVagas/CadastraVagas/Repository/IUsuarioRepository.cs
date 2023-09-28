@@ -6,6 +6,7 @@ namespace CadastraVagas.Repository
     {
         UsuarioModel Criar(UsuarioModel usuario);
 
+        UsuarioModel Editar (UsuarioModel usuario);
 
 
     }
