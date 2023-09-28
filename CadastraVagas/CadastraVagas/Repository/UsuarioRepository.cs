@@ -17,5 +17,10 @@ namespace CadastraVagas.Repository
             _bancoContext.SaveChanges();
             return usuario;
         }
+
+        public UsuarioModel Editar(UsuarioModel usuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
