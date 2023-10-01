@@ -1,10 +1,16 @@
 ﻿using CadastraVagas.Models;
+using CadastraVagas.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IUsuarioRepository _usuariosRepository;
+        public LoginController(IUsuarioRepository usuarioRepository) 
+        {
+            _usuariosRepository = usuarioRepository;
+        }   
         public IActionResult Index()
         {
             return View();
@@ -17,9 +23,14 @@ namespace CadastraVagas.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (loginModel.Login == "teste@teste.com" & loginModel.Senha == "1234")
+                    UsuarioModel usuario =_usuariosRepository.BuscarPorLogin(loginModel.Login);
+                    if (usuario != null)
                     {
-                        return RedirectToAction("Index", "Home");
+                        if (usuario.SenhaValida(loginModel.Senha))
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                        TempData["MensagemErro"] = "Senha inválida, tente novamente.";
                     }
                     TempData["MensagemErro"] = "Email e/ou senha inválido(s), tente novamente.";
                 }
