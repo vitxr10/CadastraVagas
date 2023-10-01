@@ -20,7 +20,7 @@ namespace CadastraVagas.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Perfil = table.Column<int>(type: "int", nullable: false),
+                    Perfil = table.Column<int>(type: "int", nullable: true),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

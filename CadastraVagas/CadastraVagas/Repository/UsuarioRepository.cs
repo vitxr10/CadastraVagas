@@ -10,6 +10,12 @@ namespace CadastraVagas.Repository
         {
             _bancoContext = bancoContext;
         }
+
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login == login);
+        }
+
         public UsuarioModel Criar(UsuarioModel usuario)
         {
             usuario.DataCadastro = DateTime.Now;
@@ -18,9 +24,14 @@ namespace CadastraVagas.Repository
             return usuario;
         }
 
-        public UsuarioModel Editar(UsuarioModel usuario)
+        public List<UsuarioModel> Listar()
         {
-            throw new NotImplementedException();
+            return _bancoContext.Usuarios.ToList();
+        }
+
+        public UsuarioModel ListarPorId(int id)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
         }
     }
 }

@@ -17,8 +17,9 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
+            _usuarioRepository.ListarPorId(id);
             return View();
         }
 
