@@ -1,5 +1,6 @@
 ﻿using CadastraVagas.Models;
 using CadastraVagas.Repository;
+using CadastraVagas.Session;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
@@ -7,12 +8,15 @@ namespace CadastraVagas.Controllers
     public class LoginController : Controller
     {
         private readonly IUsuarioRepository _usuariosRepository;
-        public LoginController(IUsuarioRepository usuarioRepository) 
+        private readonly ISessao _sessao;
+        public LoginController(IUsuarioRepository usuarioRepository, ISessao sessao) 
         {
             _usuariosRepository = usuarioRepository;
+            _sessao = sessao;
         }   
         public IActionResult Index()
         {
+            //if (_sessao.BuscarSessaoUsuario != null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -28,6 +32,7 @@ namespace CadastraVagas.Controllers
                     {
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
+                            _sessao.CriarSessaoUsuario(usuario);
                             return RedirectToAction("Index", "Home");
                         }
                         TempData["MensagemErro"] = "Senha inválida, tente novamente.";
@@ -42,6 +47,12 @@ namespace CadastraVagas.Controllers
                 return RedirectToAction("Index");
             }
 
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoUsuario();
+            return View("Index");
         }
     }
 }
