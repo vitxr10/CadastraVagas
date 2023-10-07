@@ -37,7 +37,10 @@ namespace CadastraVagas.Controllers
                         }
                         TempData["MensagemErro"] = "Senha inválida, tente novamente.";
                     }
-                    TempData["MensagemErro"] = "Email e/ou senha inválido(s), tente novamente.";
+                    else
+                    {
+                        TempData["MensagemErro"] = "Email e/ou senha inválido(s), tente novamente.";
+                    } 
                 }
                 return View("Index");
             }
