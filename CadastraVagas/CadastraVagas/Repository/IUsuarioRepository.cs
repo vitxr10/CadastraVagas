@@ -6,8 +6,10 @@ namespace CadastraVagas.Repository
     {
         UsuarioModel BuscarPorLogin(string login);
         UsuarioModel Criar(UsuarioModel usuario);
+        UsuarioModel Editar(UsuarioModel usuario);
         UsuarioModel ListarPorId(int id);
         List<UsuarioModel> Listar();
+        void Excluir (UsuarioModel usuario);
 
 
     }

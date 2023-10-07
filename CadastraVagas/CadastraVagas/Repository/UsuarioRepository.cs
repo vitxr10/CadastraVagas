@@ -24,6 +24,29 @@ namespace CadastraVagas.Repository
             return usuario;
         }
 
+        public UsuarioModel Editar(UsuarioModel usuario)
+        {
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            usuarioDB.Nome = usuario.Nome;
+            usuarioDB.Nome = usuario.Login;
+            usuarioDB.Nome = usuario.Senha;
+            usuarioDB.DataAtualizacao = DateTime.Now;
+
+            _bancoContext.Usuarios.Update(usuarioDB);
+            _bancoContext.SaveChanges();
+
+            return usuarioDB;
+        }
+
+        public void Excluir(UsuarioModel usuario)
+        {
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            _bancoContext.Usuarios.Remove(usuarioDB);
+            _bancoContext.SaveChanges();
+        }
+
         public List<UsuarioModel> Listar()
         {
             return _bancoContext.Usuarios.ToList();

@@ -30,7 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Vaga" asp-action="Listar">Minhas Vagas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-route-id="" asp-controller="Usuario" asp-action="Editar">Perfil</a>
+                            @await Component.InvokeAsync("Perfil")
                         </li>
                     </ul>
                 </div>
