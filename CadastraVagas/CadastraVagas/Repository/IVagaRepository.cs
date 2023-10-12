@@ -6,7 +6,7 @@ namespace CadastraVagas.Repository
     {
         VagaModel Criar(VagaModel vaga);
 
-        List<VagaModel> Listar();
+        List<VagaModel> Listar(int usuarioId);
 
         VagaModel ListarPorId(int id);
 

@@ -1,6 +1,7 @@
 ﻿using CadastraVagas.Filters;
 using CadastraVagas.Models;
 using CadastraVagas.Repository;
+using CadastraVagas.Session;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
@@ -9,9 +10,11 @@ namespace CadastraVagas.Controllers
     public class VagaController : Controller
     {
         private readonly IVagaRepository _vagaRepository;
-        public VagaController(IVagaRepository vagaRepository)
+        private readonly ISessao _sessao;
+        public VagaController(IVagaRepository vagaRepository, ISessao sessao)
         {
             _vagaRepository = vagaRepository;
+            _sessao = sessao;
         }
 
         public IActionResult Index()
@@ -21,7 +24,9 @@ namespace CadastraVagas.Controllers
 
         public IActionResult Listar()
         {
-            var listaVagas = _vagaRepository.Listar();
+            UsuarioModel usuarioLogado = _sessao.BuscarSessaoUsuario();
+
+            var listaVagas = _vagaRepository.Listar(usuarioLogado.Id);
             return View(listaVagas);
         }
 
@@ -40,6 +45,9 @@ namespace CadastraVagas.Controllers
         [HttpPost]
         public IActionResult Criar(VagaModel vaga)
         {
+            UsuarioModel usuarioLogado = _sessao.BuscarSessaoUsuario();
+            vaga.UsuarioId = usuarioLogado.Id;
+
             _vagaRepository.Criar(vaga);
             return RedirectToAction("Listar");
         }
@@ -47,6 +55,9 @@ namespace CadastraVagas.Controllers
         [HttpPost]
         public IActionResult Editar(VagaModel vaga)
         {
+            UsuarioModel usuarioLogado = _sessao.BuscarSessaoUsuario();
+            vaga.UsuarioId = usuarioLogado.Id;
+
             _vagaRepository.Editar(vaga);
             return RedirectToAction("Listar");
         }
