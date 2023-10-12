@@ -1,9 +1,11 @@
-﻿using CadastraVagas.Models;
+﻿using CadastraVagas.Filters;
+using CadastraVagas.Models;
 using CadastraVagas.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
 {
+    [FiltroUsuarioLogado]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
@@ -24,6 +26,12 @@ namespace CadastraVagas.Controllers
         }
 
         public IActionResult Excluir(int id)
+        {
+            UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
+            return View(usuario);
+        }
+
+        public IActionResult AlterarSenha(int id)
         {
             UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
             return View(usuario);

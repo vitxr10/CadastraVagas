@@ -1,9 +1,11 @@
-﻿using CadastraVagas.Models;
+﻿using CadastraVagas.Filters;
+using CadastraVagas.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace CadastraVagas.Controllers
 {
+    [FiltroUsuarioLogado]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

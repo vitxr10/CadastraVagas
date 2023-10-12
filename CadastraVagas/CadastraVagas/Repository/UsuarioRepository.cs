@@ -11,6 +11,11 @@ namespace CadastraVagas.Repository
             _bancoContext = bancoContext;
         }
 
+        public UsuarioModel AlterarSenha(UsuarioModel usuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public UsuarioModel BuscarPorLogin(string login)
         {
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Login == login);

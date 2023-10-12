@@ -1,9 +1,11 @@
-﻿using CadastraVagas.Models;
+﻿using CadastraVagas.Filters;
+using CadastraVagas.Models;
 using CadastraVagas.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
 {
+    [FiltroUsuarioLogado]
     public class VagaController : Controller
     {
         private readonly IVagaRepository _vagaRepository;
