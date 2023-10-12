@@ -10,6 +10,7 @@ namespace CadastraVagas.Repository
         UsuarioModel ListarPorId(int id);
         List<UsuarioModel> Listar();
         void Excluir (UsuarioModel usuario);
+        UsuarioModel AlterarSenha(UsuarioModel usuario);
 
 
     }
