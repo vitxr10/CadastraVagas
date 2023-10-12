@@ -9,5 +9,7 @@ namespace CadastraVagas.Models
         public string Empresa { get; set; }
         public string Descricao { get; set; }
         public string Link { get; set; }
+        public int? UsuarioId { get; set; }
+        public UsuarioModel Usuario { get; set; }
     }
 }

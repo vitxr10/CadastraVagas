@@ -1,4 +1,5 @@
-﻿using CadastraVagas.Models;
+﻿using CadastraVagas.Data.Map;
+using CadastraVagas.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CadastraVagas.Data
@@ -11,5 +12,11 @@ namespace CadastraVagas.Data
 
         public DbSet<VagaModel> Vagas { get; set; }
         public DbSet<UsuarioModel> Usuarios { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new VagaMap());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

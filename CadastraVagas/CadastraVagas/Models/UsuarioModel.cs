@@ -13,6 +13,9 @@ namespace CadastraVagas.Models
         public DateTime DataCadastro { get; set; }
         public DateTime? DataAtualizacao { get; set; }
 
+        //lista de vagas que cada usuario tem
+        public virtual List<VagaModel> Vagas { get; set; }
+
         public bool SenhaValida(string senha)
         {
             return Senha == senha;

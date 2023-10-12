@@ -22,9 +22,9 @@ namespace CadastraVagas.Repository
             return vaga;
         }
 
-        public List<VagaModel> Listar()
+        public List<VagaModel> Listar(int usuarioId)
         {
-            return _bancoContext.Vagas.ToList();
+            return _bancoContext.Vagas.Where(x => x.UsuarioId == usuarioId).ToList();
         }
 
         public VagaModel ListarPorId(int id)
