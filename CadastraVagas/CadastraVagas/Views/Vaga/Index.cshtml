@@ -1,4 +1,5 @@
-﻿@model VagaModel
+﻿@using CadastraVagas.Enums;
+@model VagaModel
 @{
     <div>
         <h1 class="text-center">Cadastrar nova vaga</h1>
@@ -28,25 +29,25 @@
             </div>
             <div class="col mb-3">
                 <label for="situacaoVaga" class="form-label">Situação:</label>
-                <select class="form-select">
+                <select class="form-select" asp-for="Situacao" required>
                     <option value="" selected>Selecione a situação da vaga</option>
-                    <option value="0">Análise de currículo</option>
-                    <option value="1">Fit cultural</option>
-                    <option value="2">Dinâmica</option>
-                    <option value="3">Entrevista</option>
-                    <option value="4">Teste</option>
-                    <option value="5">Aprovado(a)</option>
-                    <option value="6">Reprovado(a)</option>
+                    <option value="@SituacaoEnum.AnaliseCurriculo">Análise de currículo</option>
+                    <option value="@SituacaoEnum.FitCultural">Fit cultural</option>
+                    <option value="@SituacaoEnum.Dinamica">Dinâmica</option>
+                    <option value="@SituacaoEnum.Entrevista">Entrevista</option>
+                    <option value="@SituacaoEnum.Teste">Teste</option>
+                    <option value="@SituacaoEnum.Aprovado">Aprovado(a)</option>
+                    <option value="@SituacaoEnum.Reprovado">Reprovado(a)</option>
                 </select>
             </div>
         </div>
         <div class="mb-3">
             <label for="modalidade">Modalidade:</label>
-            <select class="form-select">
+            <select class="form-select" asp-for="Modalidade" required>
                 <option value="" selected>Selecione a modalidade</option>
-                <option value="1">Presencial</option>
-                <option value="2">Híbrido</option>
-                <option value="3">Remoto</option>
+                <option value="@ModalidadeEnum.Presencial">Presencial</option>
+                <option value="@ModalidadeEnum.Hibrido">Híbrido</option>
+                <option value="@ModalidadeEnum.Remoto">Remoto</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>

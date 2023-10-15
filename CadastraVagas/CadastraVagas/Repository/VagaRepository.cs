@@ -16,7 +16,7 @@ namespace CadastraVagas.Repository
         }
         public VagaModel Criar(VagaModel vaga)
         {
-            //insert na tabela vagas e dps commit
+            vaga.DataCadastro = DateTime.Now;
             _bancoContext.Vagas.Add(vaga);
             _bancoContext.SaveChanges();
             return vaga;
@@ -46,6 +46,9 @@ namespace CadastraVagas.Repository
             vagaDB.Empresa = vaga.Empresa;
             vagaDB.Descricao = vaga.Descricao;
             vagaDB.Link = vaga.Link;
+            vagaDB.Situacao = vaga.Situacao;
+            vagaDB.Modalidade = vaga.Modalidade;
+            vagaDB.DataAtualizacao = DateTime.Now;
 
             _bancoContext.Vagas.Update(vagaDB);
             _bancoContext.SaveChanges();
