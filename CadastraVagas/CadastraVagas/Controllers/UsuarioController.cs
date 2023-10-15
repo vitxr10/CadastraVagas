@@ -1,11 +1,11 @@
 ﻿using CadastraVagas.Filters;
 using CadastraVagas.Models;
 using CadastraVagas.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastraVagas.Controllers
 {
-    [FiltroUsuarioLogado]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
@@ -19,18 +19,21 @@ namespace CadastraVagas.Controllers
             return View();
         }
 
+        [FiltroUsuarioLogado]
         public IActionResult Editar(int id)
         {
             UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
             return View(usuario);
         }
 
+        [FiltroUsuarioLogado]
         public IActionResult Excluir(int id)
         {
             UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
             return View(usuario);
         }
 
+        [FiltroUsuarioLogado]
         public IActionResult AlterarSenha(int id)
         {
             UsuarioModel usuario = _usuarioRepository.ListarPorId(id);
@@ -44,6 +47,7 @@ namespace CadastraVagas.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        [FiltroUsuarioLogado]
         [HttpPost]
         public IActionResult Editar(UsuarioModel usuario)
         {
@@ -51,6 +55,7 @@ namespace CadastraVagas.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [FiltroUsuarioLogado]
         [HttpPost]
         public IActionResult Excluir(UsuarioModel usuario)
         {
