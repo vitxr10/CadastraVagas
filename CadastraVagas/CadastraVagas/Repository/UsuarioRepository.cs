@@ -46,6 +46,14 @@ namespace CadastraVagas.Repository
 
         public void Excluir(UsuarioModel usuario)
         {
+            var listaVagas = _bancoContext.Vagas.Where(x => x.UsuarioId == usuario.Id).ToList();
+            
+            foreach(var vaga in listaVagas)
+            {
+                _bancoContext.Vagas.Remove(vaga);
+                _bancoContext.SaveChanges();
+            }
+
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
             _bancoContext.Usuarios.Remove(usuarioDB);
