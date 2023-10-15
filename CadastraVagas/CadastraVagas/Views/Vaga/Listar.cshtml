@@ -9,13 +9,14 @@
         <a asp-area="" asp-controller="Vaga" asp-action="Index">Cadastrar vaga</a>
     </div>
 
-    <table class="table text-center" id="minhasVagas">
+    <table class="table" id="minhasVagas">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Título</th>
                 <th scope="col">Empresa</th>
-                <th scope="col">Link</th>
+                <th scope="col">Situação</th>
+                <th scope="col">Modalidade</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -26,7 +27,36 @@
                     <th scope="row">@vaga.Id</th>
                     <td>@vaga.Titulo</td>
                     <td>@vaga.Empresa</td>
-                    <td>@vaga.Link</td>
+
+                    @if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.AnaliseCurriculo)
+                    {
+                        <td>Análise de curriculo</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.FitCultural)
+                    {
+                        <td>Fit cultural</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.Dinamica)
+                    {
+                        <td>Dinâmica</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.Entrevista)
+                    {
+                        <td>Entrevista</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.Teste)
+                    {
+                        <td>Teste</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.Aprovado)
+                    {
+                        <td>Aprovado(a)</td>
+                    }
+                    else if (@vaga.Situacao == CadastraVagas.Enums.SituacaoEnum.Reprovado)
+                    {
+                        <td>Reprovado(a)</td>
+                    }
+                    <td>@vaga.Modalidade</td>
 
                     <td>
                         <a class="btn btn-primary" asp-route-id="@vaga.Id" asp-controller="Vaga" asp-action="Editar">Editar</a>
